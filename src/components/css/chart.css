@@ -1,0 +1,25 @@
+.chart_container{
+    width: 95%;
+    min-height: 2vh;
+    margin: 1rem auto;
+    text-align: center;
+    font-weight: 100;
+    font-size: small;
+    color: black;
+    padding: 1rem;
+}
+.chart_container > .buttons{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    /* background-color: var(--secondary); */
+    gap: 4rem;
+}
+.buttons > label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

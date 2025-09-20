@@ -1,0 +1,23 @@
+/* .detail_container{
+
+} */
+.detail_container > p{
+    width: 95%;
+    margin: 0 auto;
+}
+.compare_container > h6{
+    font-size: larger;
+    font-weight: 300;
+    margin: 1rem auto;
+    color: var(--secondary);
+    width: 80%;
+
+}
+.compare_container > h6:hover{
+   color: unset;
+    cursor: pointer;
+}
+.compare_container > h6 > span{
+    
+    font-size: xx-small;
+}

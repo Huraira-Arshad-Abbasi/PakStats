@@ -1,0 +1,120 @@
+.home_container {
+    text-align: center;
+    width: 100%;
+
+}
+
+.home_container>.hero_bg_img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    filter: grayscale(0.5) contrast(1.1) brightness(1.1);
+    background: radial-gradient(circle at center, #2730425c, var(--bg) 70%), url("/src/assets/hero1.jpg") no-repeat center/cover;
+    background-position: top left;
+}
+
+.home_container>.hero_section {
+
+    height: 100vh;
+    width: 100%;
+    /* margin: 2vw auto; */
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: white;
+    
+}
+
+.hero_content {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    transition: all 0.5s;
+}
+
+.hero_content>h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text);
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-style: bold;
+    text-shadow: 0px 0px 14px #000000;
+}
+
+.hero_content>p {
+    font-size: 1.5vw;
+    font-weight: 100;
+    margin-bottom: 3vw;
+    color: var(--text-secondary);
+    text-shadow: 2px 2px 4px rgb(38, 45, 52);
+}
+
+.hero_content>.key_stats {
+    margin: 3rem auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 2rem; */
+    /* border: 2px solid blue; */
+}
+
+.key_stats>button {
+    padding: .5rem 1.5rem;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: 0.5s;
+    outline: none;
+}
+.key_stats>button:hover {
+    background: var(--primary);
+    padding: .5rem 2rem;
+    
+}
+
+
+/* popular_stats section */
+.popular_stats {
+    position: relative;
+    background: white;
+    padding: 2rem 0;
+}
+.popular_stats > h2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-style: bold;
+    margin: 2rem auto;
+    padding: 2rem 0;
+}
+.popular_stats > .stats_cards{
+    margin: 2rem auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+.stats_cards > .card{
+    width: 40%;
+    background: var(--bg);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px var(--shadow);
+    padding: 1rem;
+    transition: 0.5s;
+    cursor: pointer;
+}

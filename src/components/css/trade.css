@@ -1,0 +1,65 @@
+.trade{
+    margin-top: 5vw;
+    /* height: 200vh; */
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--bg);
+}
+.trade h2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+    font-weight: 600;
+    font-style: bold;
+    margin: 2rem auto;
+    padding: 2rem 0;
+}
+
+.trade > article{
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+    /* border: 2px solid var(--secondary); */
+}
+.trade > article > h3{
+    
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+    /* font-family: "Oswald", sans-serif; */
+    font-weight: 600;
+    font-style: bold;
+    margin: 1rem auto;
+    padding: 1rem 0;    
+}
+.trade > article > div{
+    width: 90%;
+    /* font-size: 1.2rem; */
+    /* font-weight: 100; */
+    
+    margin: 1rem auto;
+}
+
+
+.trade > .indicators > div >ul{
+    width: 95%;
+    margin: 1rem auto;
+    list-style-type: none;
+}
+.indicators li> h4:hover{
+        color: var(--secondary);
+        text-decoration: underline;
+        cursor: pointer;
+}
+
+
+.indicators li> h4 > span{
+    display: inline-block;
+    
+
+}
+.indicators > div > p{
+    font-family: 'Roboto', sans-serif;
+}

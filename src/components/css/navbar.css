@@ -1,0 +1,110 @@
+nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: var(--bg); */
+  padding: 1rem 2rem;
+  z-index: 100;
+  transition: all 0.5s;
+  border-bottom: .5px solid #99919182;
+}
+.logo > a {
+  position: relative;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2.5vw;
+  text-decoration: none;
+  background: linear-gradient(30deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: 0.5s;
+}
+
+.logo > a:hover {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav__links {
+  margin-left: auto;
+}
+
+.nav__links > ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__links > ul > li > a { /* replace the navlink selector with a */
+  margin: 1vw 2vw;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5vw;
+  position: relative;
+  color: transparent;
+  background: linear-gradient(30deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: 0.5s;
+  padding: 0 0.3vw;
+}
+
+.nav__links > ul > li > .nav-link:hover{
+ color: var(--primary);
+}
+.nav__links > ul > li > .nav-link.active {
+  
+  padding: 0 0.5vw;
+}
+
+/* Underline effect */
+.nav__links > ul > li > .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 3px;
+  width: 0;
+  background-color: var(--secondary);
+  border-radius: 5pt;
+  transition: width 0.5s;
+}
+
+.nav__links > ul > li > .nav-link:hover::before,
+.nav__links > ul > li > .nav-link.active::before {
+  width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  nav {
+    display: block;
+    position: relative;
+  }
+
+  .logo > a {
+    width: 100%;
+    text-align: center;
+    display: block;
+    font-size: 10vw;
+  }
+
+  .nav__links {
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 0.6rem 0;
+    text-align: center;
+    box-shadow: 0 0 5px -2px var(--shadow);
+  }
+
+  .nav__links > ul > li > .nav-link {
+    font-size: 3vw;
+    margin: 0 4vw;
+  }
+}
