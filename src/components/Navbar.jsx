@@ -70,6 +70,26 @@ export default function Navbar () {
                 poverty & Jobs
               </NavLink>
             </li> */}
+            <li>
+              <NavLink
+                to='/Education'
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active' : 'nav-link'
+                }
+              >
+                Education
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/Economy'
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active' : 'nav-link'
+                }
+              >
+                Economy
+              </NavLink>
+            </li>
 
             <li>
               <NavLink

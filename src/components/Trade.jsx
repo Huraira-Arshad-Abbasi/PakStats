@@ -2,7 +2,7 @@ import react from 'react'
 import './css/trade.css'
 import Details from './Details'
 const Trade = () => {
-  const [open, setOpen] = react.useState([false, false, false, false, false])
+  const [open, setOpen] = react.useState([])
   // const [tradeData, setTradeData] = useState(null);
   react.useEffect(() => {
     //     const indicators = [
@@ -76,9 +76,10 @@ const Trade = () => {
 
   return (
     <section className='trade'>
-      <h2>Trade (Export & Import)</h2>
+      <div className="img"></div>
+      <h2>📦 Trade in Pakistan</h2>
       <article>
-        <h3>📦 Trade in Pakistan – Why It Matters</h3>
+        <h3>📦 Why It Matters</h3>
         <p>
           Trade is a key driver of Pakistan’s economy, shaping jobs, income, and
           foreign reserves. Exports bring in valuable foreign exchange, while

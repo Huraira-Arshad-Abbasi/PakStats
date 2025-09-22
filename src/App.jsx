@@ -5,6 +5,8 @@ import About from './components/About'
 import Navbar from './components/Navbar'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Trade from './components/Trade'
+import Education from './components/Education'
+import Economy from './components/Economy'
 
 function App () {
   const router = createBrowserRouter([
@@ -37,10 +39,26 @@ function App () {
     //     </>
     // },
     {
+      path: '/Education',
+      element: <>
+          <Navbar />
+          <Education/>
+          <Footer/>
+        </>
+    },
+    {
       path: '/Trade',
       element: <>
           <Navbar />
           < Trade />
+          <Footer />
+        </>
+    },
+    {
+      path: '/Economy',
+      element: <>
+          <Navbar />
+          < Economy/>
           <Footer />
         </>
     }

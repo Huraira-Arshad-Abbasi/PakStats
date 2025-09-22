@@ -17,7 +17,10 @@ const Chart = ({ code }) => {
     lineChart: true,
     barChart: false
   })
+
+
   React.useEffect(() => {
+    
     const fetchData = async () => {
       try {
         let response = await fetch(
@@ -44,6 +47,24 @@ const Chart = ({ code }) => {
     }
     fetchData()
   }, [code])
+
+ const formatNumber = (num)=>{
+  if (num === null || num === undefined) return "";
+
+  const absNum = Math.abs(num);
+
+  if (absNum >= 1.0e12) {
+    return (num / 1.0e12).toFixed(2) + "T"; // trillion
+  } else if (absNum >= 1.0e9) {
+    return (num / 1.0e9).toFixed(2) + "B"; // billion
+  } else if (absNum >= 1.0e6) {
+    return (num / 1.0e6).toFixed(2) + "M"; // million
+  } else if (absNum >= 1.0e3) {
+    return (num / 1.0e3).toFixed(2) + "K"; // thousand
+  } else {
+    return num.toFixed(2); // small numbers
+  }
+ }
 
   const handleChange =(e)=>{
        const {name, checked: isChecked} = e.target
@@ -72,8 +93,8 @@ const Chart = ({ code }) => {
         <LineChart data={Data}>
           <CartesianGrid strokeDasharray='5 5' opacity={0.5} />
           <XAxis dataKey='year' />
-          <YAxis />
-          <Tooltip className='tooltip' />
+          <YAxis tickFormatter={formatNumber}/>
+          <Tooltip className='tooltip' formatter={(value) => formatNumber(value)}/>
           <Line
             type='monotone'
             dataKey='value'
@@ -87,8 +108,8 @@ const Chart = ({ code }) => {
         <BarChart data={Data}>
           <CartesianGrid strokeDasharray='3 3' />
           <XAxis dataKey='year' />
-          <YAxis />
-          <Tooltip />
+          <YAxis tickFormatter={formatNumber}/>
+          <Tooltip className='tooltip' formatter={(value) => formatNumber(value)}/>
           <Bar dataKey='value' fill='#4454a1ff' />
         </BarChart>
       </ResponsiveContainer>}

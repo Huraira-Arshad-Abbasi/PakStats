@@ -2,6 +2,13 @@ import React from 'react'
 import './css/home.css'
 
 const Home = () => {
+
+  React.useEffect(()=>{
+    fetch(
+    "https://api.worldbank.org/v2/country/PK/indicator/SL.UEM.TOTL.ZS?format=json&MRV=1"
+    ).then((res)=>res.json()).then((res)=>console.log(res));
+    
+  },[])
   return (
     <div className='home_container'>
       <div className='hero_bg_img'></div>

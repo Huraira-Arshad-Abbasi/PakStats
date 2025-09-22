@@ -48,6 +48,7 @@ const ComparisonChart = ({ code }) => {
         )
       }
     }
+
     const fetchData = async () => {
       const [PakData, OtherData] = await Promise.all([
         fetchCountryData('PK'),
@@ -60,13 +61,34 @@ const ComparisonChart = ({ code }) => {
         return {
           year: pakD.year,
           Pakistan: pakD.value,
-          [selection.country]: other.value ? other.value : null
+          [selection.country]: other.value ? other.value : []
         }
       })
       setData(merged.reverse())
     }
     fetchData()
+
   }, [selection, code])
+
+
+const formatNumber = (num)=>{
+  if (num === null || num === undefined) return "";
+
+  const absNum = Math.abs(num);
+
+  if (absNum >= 1.0e12) {
+    return (num / 1.0e12).toFixed(2) + "T"; // trillion
+  } else if (absNum >= 1.0e9) {
+    return (num / 1.0e9).toFixed(2) + "B"; // billion
+  } else if (absNum >= 1.0e6) {
+    return (num / 1.0e6).toFixed(2) + "M"; // million
+  } else if (absNum >= 1.0e3) {
+    return (num / 1.0e3).toFixed(2) + "K"; // thousand
+  } else {
+    return num.toFixed(2); // small numbers
+  }
+ }
+
   const handleChange = e => {
     const { name, value } = e.target
     setSelection(pre => ({
@@ -115,8 +137,8 @@ const ComparisonChart = ({ code }) => {
           <LineChart data={data}>
             <CartesianGrid strokeDasharray='3 8' />
             <XAxis dataKey='year' />
-            <YAxis />
-            <Tooltip />
+            <YAxis tickFormatter={formatNumber}/>
+            <Tooltip formatter={(value) => formatNumber(value)}/>
             <Legend />
             <Line
               type='monotone'
@@ -138,8 +160,8 @@ const ComparisonChart = ({ code }) => {
           <BarChart data={data}>
             <CartesianGrid strokeDasharray='3 8' />
             <XAxis dataKey='year' />
-            <YAxis />
-            <Tooltip />
+            <YAxis tickFormatter={formatNumber}/>
+            <Tooltip formatter={(value) => formatNumber(value)}/>
             <Legend />
             <Bar fill="#8884d8"
             dataKey='Pakistan'/>
@@ -152,8 +174,8 @@ const ComparisonChart = ({ code }) => {
           <ComposedChart data={data}>
             <CartesianGrid strokeDasharray='3 8' />
             <XAxis dataKey='year' />
-            <YAxis />
-            <Tooltip />
+            <YAxis tickFormatter={formatNumber}/>
+            <Tooltip formatter={(value) => formatNumber(value)}/>
             <Legend />
             <Bar fill="#8884d8"
             dataKey='Pakistan'/>
