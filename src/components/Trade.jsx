@@ -1,8 +1,9 @@
 import react from 'react'
-import './css/trade.css'
-import Details from './Details'
+import Template from './Template'
+// import './css/trade.css'
+// import Details from './Details'
 const Trade = () => {
-  const [open, setOpen] = react.useState([])
+  
   // const [tradeData, setTradeData] = useState(null);
   react.useEffect(() => {
     //     const indicators = [
@@ -28,13 +29,7 @@ const Trade = () => {
     // }
   }, [])
 
-  const handleHeadingClick = index => {
-    setOpen(pre => {
-      const newOpen = [...pre]
-      newOpen[index] = !newOpen[index]
-      return newOpen
-    })
-  }
+ 
 
   const headings = [
     {
@@ -75,86 +70,90 @@ const Trade = () => {
   ]
 
   return (
-    <section className='trade'>
-      <div className="img"></div>
-      <h2>📦 Trade in Pakistan</h2>
-      <article>
-        <h3>📦 Why It Matters</h3>
-        <p>
-          Trade is a key driver of Pakistan’s economy, shaping jobs, income, and
-          foreign reserves. Exports bring in valuable foreign exchange, while
-          imports meet the demand for goods that the country cannot produce
-          locally, such as fuel, machinery, and technology. A balanced trade
-          system strengthens economic growth, reduces dependency, and improves
-          living standards. By tracking exports, imports, and the trade balance,
-          we can better understand Pakistan’s economic health and its position
-          in the global market.
-        </p>
-      </article>
-      <article className='indicators'>
-        <h3>📊 Key Trade Indicators</h3>
-        <div>
-          <p>
-            To assess Pakistan's trade performance, we focus on several key
-            indicators:
-          </p>
-          <ul>
-            {headings.map((h, index) => {
-              return (
-                <li key={index}>
-                  <h4
-                    onClick={() => handleHeadingClick(index)}
-                    style={{
-                      textDecoration: open[index] ? 'underline' : 'none'
-                    }}
-                  >
-                    <span
-                      style={{
-                        transition: "transform 0.3s ease",
-                        transform: open[index]
-                          ? 'rotate(90deg)'
-                          : 'rotate(0deg)'
-                      }}
-                    >
-                      ►
-                    </span>
-                    {h.title}
-                  </h4>
-                  <div>
-                    {open[index] && <Details code={h.code} p={h.desc} />}
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
-          <p>
-            These metrics provide insights into how much Pakistan trades
-            relative to its economy, the value of goods exchanged, and the
-            overall trade balance.
-          </p>
-        </div>
-      </article>
-      <article>
-        <h3>🌐 Pakistan's Trade Partners</h3>
-        <p>
-          Pakistan's main trade partners include China, the United States, the
-          United Arab Emirates, and the European Union. These relationships are
-          crucial for both exports and imports, influencing economic stability
-          and growth. Understanding these partnerships helps in analyzing trade
-          patterns and potential areas for expansion.
-        </p>
-      </article>
+    <div>
+      <Template headings={headings} icon="📦 " section="Trade in Pakistan" WhyItMatter="Trade is a key driver of Pakistan’s economy, shaping jobs, income, and foreign reserves. Exports bring in valuable foreign exchange, while imports meet the demand for goods that the country cannot produce locally, such as fuel, machinery, and technology. A balanced trade system strengthens economic growth, reduces dependency, and improves living standards. By tracking exports, imports, and the trade balance, we can better understand Pakistan’s economic health and its position in the global market." />
+    </div>
+    
+    // <section className='trade'>
+    //   <div className="img"></div>
+    //   <h2>📦 Trade in Pakistan</h2>
+    //   <article>
+    //     <h3>📦 Why It Matters</h3>
+    //     <p>
+    //       Trade is a key driver of Pakistan’s economy, shaping jobs, income, and
+    //       foreign reserves. Exports bring in valuable foreign exchange, while
+    //       imports meet the demand for goods that the country cannot produce
+    //       locally, such as fuel, machinery, and technology. A balanced trade
+    //       system strengthens economic growth, reduces dependency, and improves
+    //       living standards. By tracking exports, imports, and the trade balance,
+    //       we can better understand Pakistan’s economic health and its position
+    //       in the global market.
+    //     </p>
+    //   </article>
+    //   <article className='indicators'>
+    //     <h3>📊 Key Trade Indicators</h3>
+    //     <div>
+    //       <p>
+    //         To assess Pakistan's trade performance, we focus on several key
+    //         indicators:
+    //       </p>
+    //       <ul>
+    //         {headings.map((h, index) => {
+    //           return (
+    //             <li key={index}>
+    //               <h4
+    //                 onClick={() => handleHeadingClick(index)}
+    //                 style={{
+    //                   textDecoration: open[index] ? 'underline' : 'none'
+    //                 }}
+    //               >
+    //                 <span
+    //                   style={{
+    //                     transition: "transform 0.3s ease",
+    //                     transform: open[index]
+    //                       ? 'rotate(90deg)'
+    //                       : 'rotate(0deg)'
+    //                   }}
+    //                 >
+    //                   ►
+    //                 </span>
+    //                 {h.title}
+    //               </h4>
+    //               <div>
+    //                 {open[index] && <Details code={h.code} p={h.desc} />}
+    //               </div>
+    //             </li>
+    //           )
+    //         })}
+    //       </ul>
+    //       <p>
+    //         These metrics provide insights into how much Pakistan trades
+    //         relative to its economy, the value of goods exchanged, and the
+    //         overall trade balance.
+    //       </p>
+    //     </div>
+    //   </article>
+    //   <article>
+    //     <h3>🌐 Pakistan's Trade Partners</h3>
+    //     <p>
+    //       Pakistan's main trade partners include China, the United States, the
+    //       United Arab Emirates, and the European Union. These relationships are
+    //       crucial for both exports and imports, influencing economic stability
+    //       and growth. Understanding these partnerships helps in analyzing trade
+    //       patterns and potential areas for expansion.
+    //     </p>
+    //   </article>
 
-      {/* <div className='heading'>
-        • Exports of goods and services (% of GDP) • Imports of goods and
-        services (% of GDP) • Merchandise exports (current US$) • Merchandise
-        imports (current US$) • Trade (% of GDP) • Current account balance (% of
-        GDP) • Balance of payments, current US$ • Frequently Ask Questions (FAQ)
-      </div> */}
-      {/* section for charts + desc */}
-      {/* section for  what is good stage moderate and bad stage*/}
-      {/* section for comparision with others + desc */}
-    </section>
+    //   {/* <div className='heading'>
+    //     • Exports of goods and services (% of GDP) • Imports of goods and
+    //     services (% of GDP) • Merchandise exports (current US$) • Merchandise
+    //     imports (current US$) • Trade (% of GDP) • Current account balance (% of
+    //     GDP) • Balance of payments, current US$ • Frequently Ask Questions (FAQ)
+    //   </div> */}
+    //   {/* section for charts + desc */}
+    //   {/* section for  what is good stage moderate and bad stage*/}
+    //   {/* section for comparision with others + desc */}
+    // </section>
   )
 }
 

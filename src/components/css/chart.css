@@ -5,7 +5,6 @@
     text-align: center;
     font-weight: 100;
     font-size: small;
-    color: black;
     padding: 1rem;
 }
 .chart_container > .buttons{
@@ -22,4 +21,16 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+}
+.chart_container > .charts{
+   background-color: var(--bg-secondary);
+    padding: 1rem;
+}
+.custom-tooltip{
+  border-radius: 8px;
+}
+.custom-tooltip p {
+  margin: 0 auto;
+  font-weight: bold;
+  color: var(--text); /
 }

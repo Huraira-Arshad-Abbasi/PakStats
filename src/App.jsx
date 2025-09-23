@@ -7,6 +7,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Trade from './components/Trade'
 import Education from './components/Education'
 import Economy from './components/Economy'
+import Poverty from './components/Poverty'
+import Debt from './components/Debt'
+import Tech from './components/Tech'
 
 function App () {
   const router = createBrowserRouter([
@@ -30,14 +33,14 @@ function App () {
         </>
       
     },
-    // {
-    //   path: '/poverty&Jobs',
-    //   element: <>
-    //       <Navbar />
-    //       <div>poverty & jobs</div>
-    //       <Footer />
-    //     </>
-    // },
+    {
+      path: '/poverty',
+      element: <>
+          <Navbar />
+          <Poverty/>
+          <Footer />
+        </>
+    },
     {
       path: '/Education',
       element: <>
@@ -61,7 +64,23 @@ function App () {
           < Economy/>
           <Footer />
         </>
-    }
+    },
+    {
+      path: '/Debt',
+      element: <>
+          <Navbar />
+          <Debt/>
+          <Footer />
+        </>
+    },
+    {
+      path: '/Tech',
+      element: <>
+          <Navbar />
+          <Tech/>
+          <Footer />
+        </>
+    },
   ])
   return (
     <>

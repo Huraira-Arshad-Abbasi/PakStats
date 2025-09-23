@@ -1,35 +1,19 @@
 import { useEffect, useRef } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './css/navbar.css'
 export default function Navbar () {
   const navRef = useRef(null)
-  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
-      const isHomePage = location.pathname === '/'
-      if (!isHomePage) {
-        if (window.scrollY > 0) {
-          
-          navRef.current.style.boxShadow = '0 0 10px 0px var(--shadow)'
-               navRef.current.style.backgroundColor = 'white'
-           return; // don’t attach scroll listener
-        }
-    }
-      
-        if (window.scrollY > 600) {
-          navRef.current.style.boxShadow = '0 0 10px 0px var(--shadow)'
-          navRef.current.style.backgroundColor = 'white'
-        } else if (window.scrollY > 200) {
-          navRef.current.style.borderBottom = '0px'
-          navRef.current.style.boxShadow = '0 0 10px 0px var(--shadow)'
-          navRef.current.style.backgroundColor = '#252932'
-        } else {
-          navRef.current.style.borderBottom = '.5px solid #99919182'
-          navRef.current.style.boxShadow = 'none'
-          navRef.current.style.backgroundColor = 'transparent'
-        }
-      
+      if (window.scrollY > 100) {
+        // navRef.current.style.borderBottom = '0px'
+        navRef.current.style.boxShadow = '0 0 5px 0px var(--border)'
+        navRef.current.style.backgroundColor = 'var(--bg)'
+      } else {
+        navRef.current.style.boxShadow = 'none'
+        navRef.current.style.backgroundColor = 'transparent'
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -37,7 +21,7 @@ export default function Navbar () {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [location.pathname])
+  }, [])
 
   return (
     <div>
@@ -60,16 +44,6 @@ export default function Navbar () {
               </NavLink>
             </li>
 
-            {/* <li>
-              <NavLink
-                to='/poverty&Jobs'
-                className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
-                }
-              >
-                poverty & Jobs
-              </NavLink>
-            </li> */}
             <li>
               <NavLink
                 to='/Education'
@@ -102,6 +76,36 @@ export default function Navbar () {
               </NavLink>
             </li>
 
+            <li>
+              <NavLink
+                to='/Debt'
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active' : 'nav-link'
+                }
+              >
+                External Debt
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/Tech'
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active' : 'nav-link'
+                }
+              >
+                Science & Technology
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/poverty'
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active' : 'nav-link'
+                }
+              >
+                poverty
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to='/About'

@@ -1,23 +1,23 @@
-/* .detail_container{
 
-} */
 .detail_container > p{
-    width: 95%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 1.5rem auto;
+    line-height: 1.4rem;
 }
 .compare_container > h6{
     font-size: larger;
     font-weight: 300;
     margin: 1rem auto;
-    color: var(--secondary);
-    width: 80%;
+    color: var(--text);
+    width: 90%;
 
 }
 .compare_container > h6:hover{
-   color: unset;
     cursor: pointer;
+    color: var(--text);
+    /* width: fit-content; */
 }
 .compare_container > h6 > span{
+    font-size: small;
     
-    font-size: xx-small;
 }

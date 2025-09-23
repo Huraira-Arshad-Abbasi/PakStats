@@ -11,17 +11,24 @@
   --hover: rgb(50, 65, 82);
   --hover2: rgb(34, 40, 47); */
 
-  /* scheme 2
-  --bg: #000000;
-  --primary: #00ffcc;
-  --secondary: #ff0066;
-  --text: #ffffff;
-  --text-secondary: #b3b3b3;
-  --shadow: #358bad;
-  --hover: rgb(56, 56, 150); */
+  /* scheme 2 */
+  /* --bg: #000000; */
+  /* --primary: #00ffcc;
+  --secondary: #ff0066; */
+  /* --text: #ffffff;
+  --text-secondary: #b3b3b3; */
+  /* --shadow: #358bad; */
+  /* --hover: rgb(56, 56, 150); */
 
-
-  /* scheme 3 */
+  --bg: #131324;
+  --bg-secondary: #312943;
+  --text: #c3cdff;
+  /* --text: #ffffff; */
+  --text-secondary: #d4d8ca;
+  --hover-text: #ffffff;
+  --border: #4e0eff;
+  --shadow: #5fc7ff;
+  /* scheme 3  high contrast*/
   /* --bg: #0f172a;
   --primary: #38bdf8;
   --secondary: #facc15;
@@ -41,19 +48,19 @@
   --hover: rgb(56, 150, 103); */
 
 
-  
+
 
 
 
   /* scheme New */
-  --bg: #252932;
-  /* --bg: #2f2f32; */
-  --primary: #d3d5cc; /* for heading*/
+  /* --bg: #252932;
+  --bg: #2f2f32;
+  --primary: #d3d5cc; 
   --secondary: #473b64;
-  --text: #bac0ea;   /* #c98459 */
+  --text: #bac0ea;   
   --text-secondary: #ffffff;
-  --shadow: #000000;
-  --hover-bg: #2a3536; 
+  --shadow: #000000; */
+  --hover-bg: #2a3536;
   --hover-text: #ffffff;
 
 
@@ -64,22 +71,26 @@
   overflow-x: hidden;
   margin: 0 auto;
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 6px;
 }
-::-webkit-scrollbar-track{
+
+::-webkit-scrollbar-track {
   background: transparent;
 }
-::-webkit-scrollbar-thumb{
-  background:var(--secondary);
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
   border-radius: 2px;
 }
-::-webkit-scrollbar-thumb:hover{
-  background:var(--primary);
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }

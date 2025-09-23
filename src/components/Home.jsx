@@ -20,9 +20,10 @@ const Home = () => {
             interactive charts.
           </p>
           <div className='key_stats'>
-            <button>Export & Import</button>
-            <button>Inflation</button>
-            <button>Poverty & Jobs</button>
+            <button>Trade</button>
+            <button>Economy</button>
+            <button>Poverty</button>
+            <button>Education</button>
           </div>
         </div>
       </div>

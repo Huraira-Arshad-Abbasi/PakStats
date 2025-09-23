@@ -1,16 +1,7 @@
 import React from 'react'
-import './css/edu.css'
-import Details from './Details'
+import Template from './Template'
 const Education = () => {
-  const [open, setOpen] = React.useState([])
 
-  const handleHeadingClick = index => {
-    setOpen(pre => {
-      const newOpen = [...pre]
-      newOpen[index] = !newOpen[index]
-      return newOpen
-    })
-  }
 
   const headings = [
     {
@@ -93,57 +84,60 @@ const Education = () => {
   ]
 
   return (
-    <section className='education'>
-      <div className="img"></div>
-      <h2>🎓 Education</h2>
-      <article>
-        <h3>🎓 Why It Matters</h3>
-        <p>
-          Education is the foundation of national progress, shaping the future
-          workforce and driving innovation. In Pakistan, access to quality
-          education determines how prepared young people are for global
-          challenges and opportunities. Tracking literacy rates, enrollment
-          levels, and graduate numbers provides insights into how well the
-          country is equipping its citizens with the skills needed for
-          sustainable growth and social development.
-        </p>
-      </article>
-      <article className='indicators'>
-        <h3>📊 Key Trade Indicators</h3>
-        <div>
-          <ul>
-            {headings.map((h, index) => {
-              return(
-                <li key={index}>
-                <h4
-                  onClick={() => handleHeadingClick(index)}
-                  style={{
-                    textDecoration: open[index] ? 'underline' : 'none'
-                  }}
-                >
-                  <span
-                      style={{
-                        transition: "transform 0.3s ease",
-                        transform: open[index]
-                          ? 'rotate(90deg)'
-                          : 'rotate(0deg)'
-                      }}
-                    >
-                      ►
-                    </span>
-                  {h.title}
-                </h4>
-                <div>
-                  {open[index] && <Details code={h.code} p={h.desc} />}
-                </div>
-              </li>
-              )
-            })}
-          </ul>
-        </div>
-      </article>
-      <article></article>
-    </section>
+    <div>
+      <Template headings={headings} icon="🎓 " section="Education" WhyItMatter="Education is the foundation of national progress, shaping the future workforce and driving innovation. In Pakistan, access to quality education determines how prepared young people are for global challenges and opportunities. Tracking literacy rates, enrollment levels, and graduate numbers provides insights into how well the country is equipping its citizens with the skills needed for sustainable growth and social development." />
+    </div>
+    // <section className='education'>
+    //   <div className="img"></div>
+    //   <h2>🎓 Education</h2>
+    //   <article>
+    //     <h3>🎓 Why It Matters</h3>
+    //     <p>
+    //       Education is the foundation of national progress, shaping the future
+    //       workforce and driving innovation. In Pakistan, access to quality
+    //       education determines how prepared young people are for global
+    //       challenges and opportunities. Tracking literacy rates, enrollment
+    //       levels, and graduate numbers provides insights into how well the
+    //       country is equipping its citizens with the skills needed for
+    //       sustainable growth and social development.
+    //     </p>
+    //   </article>
+    //   <article className='indicators'>
+    //     <h3>📊 Key Trade Indicators</h3>
+    //     <div>
+    //       <ul>
+    //         {headings.map((h, index) => {
+    //           return(
+    //             <li key={index}>
+    //             <h4
+    //               onClick={() => handleHeadingClick(index)}
+    //               style={{
+    //                 textDecoration: open[index] ? 'underline' : 'none'
+    //               }}
+    //             >
+    //               <span
+    //                   style={{
+    //                     transition: "transform 0.3s ease",
+    //                     transform: open[index]
+    //                       ? 'rotate(90deg)'
+    //                       : 'rotate(0deg)'
+    //                   }}
+    //                 >
+    //                   ►
+    //                 </span>
+    //               {h.title}
+    //             </h4>
+    //             <div>
+    //               {open[index] && <Details code={h.code} p={h.desc} />}
+    //             </div>
+    //           </li>
+    //           )
+    //         })}
+    //       </ul>
+    //     </div>
+    //   </article>
+    //   <article></article>
+    // </section>
   )
 }
 

@@ -10,7 +10,7 @@ nav {
   padding: 1rem 2rem;
   z-index: 100;
   transition: all 0.5s;
-  border-bottom: .5px solid #99919182;
+  border-bottom: .5px solid var(--border);
 }
 .logo > a {
   position: relative;
@@ -18,7 +18,7 @@ nav {
   font-style: normal;
   font-size: 2.5vw;
   text-decoration: none;
-  background: linear-gradient(30deg, var(--primary), var(--secondary));
+  background: linear-gradient(30deg, var(--text), var(--text-secondary));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -26,7 +26,7 @@ nav {
 }
 
 .logo > a:hover {
-  color: var(--primary);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -42,24 +42,23 @@ nav {
 }
 
 .nav__links > ul > li > a { /* replace the navlink selector with a */
-  margin: 1vw 2vw;
+  margin: 1vw;
   text-decoration: none;
-  font-weight: 600;
+  /* font-weight: 500; */
   font-size: 1.5vw;
   position: relative;
   color: transparent;
-  background: linear-gradient(30deg, var(--primary), var(--secondary));
+  background: linear-gradient(30deg, var(--text), var(--text-secondary));
   background-clip: text;
   -webkit-background-clip: text;
   transition: 0.5s;
   padding: 0 0.3vw;
 }
 
-.nav__links > ul > li > .nav-link:hover{
- color: var(--primary);
-}
+.nav__links > ul > li > .nav-link:hover,
 .nav__links > ul > li > .nav-link.active {
   
+  color: var(--text);
   padding: 0 0.5vw;
 }
 
@@ -71,7 +70,7 @@ nav {
   bottom: -4px;
   height: 3px;
   width: 0;
-  background-color: var(--secondary);
+  background-color: var(--text);
   border-radius: 5pt;
   transition: width 0.5s;
 }
@@ -100,7 +99,7 @@ nav {
     margin-top: 1rem;
     padding: 0.6rem 0;
     text-align: center;
-    box-shadow: 0 0 5px -2px var(--shadow);
+    box-shadow: 0 0 5px -2px var(--bg);
   }
 
   .nav__links > ul > li > .nav-link {

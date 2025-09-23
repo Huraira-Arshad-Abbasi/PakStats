@@ -3,7 +3,7 @@ import Chart from './Chart'
 import './css/details.css'
 import ComparisonChart from './ComparisonChart'
 
-const Details = ({ code, p }) => {
+const Details = ({section, code, p }) => {
   const [compare, setCompare] = React.useState(false)
 
   const handleClick = () => {
@@ -13,8 +13,9 @@ const Details = ({ code, p }) => {
     <div className='detail_container'>
       <p>{p}</p>
       <Chart code={code} />
-      <div className='compare_container'>
-        <h6 onClick={handleClick} style={{color:compare ? "":"var( --text)"}}>
+      {
+        section !== "Education" && <div className='compare_container'>
+        <h6 onClick={handleClick} style={{color:compare ? "":"var( --text-secondary)", borderBottom: compare ? "1px solid var(--text)":""}}>
           <span style={{display: 'inline-block',transition: "transform 0.3s ease",transform: (compare== true) ? 'rotate(90deg)':'rotate(0deg)'}}
           >►</span> compare with other contries:
         </h6>
@@ -24,6 +25,8 @@ const Details = ({ code, p }) => {
           </div>
         )}
       </div>
+      }
+      
     </div>
   )
 }

@@ -12,7 +12,7 @@
     height: 100vh;
     width: 100%;
     filter: grayscale(0.5) contrast(1.1) brightness(1.1);
-    background: radial-gradient(circle at center, #2730425c, var(--bg) 70%), url("/src/assets/hero1.jpg") no-repeat center/cover;
+    background: radial-gradient(circle at center, #31294354, var(--bg) 80%), url("/src/assets/hero1.jpg") no-repeat center/cover;
     background-position: top left;
 }
 
@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: end;
-    color: white;
+    /* color: white; */
     
 }
 
@@ -48,7 +48,8 @@
 
 .hero_content>p {
     font-size: 1.5vw;
-    font-weight: 100;
+    font-weight: 300;
+    font-style: italic;
     margin-bottom: 3vw;
     color: var(--text-secondary);
     text-shadow: 2px 2px 4px rgb(38, 45, 52);
@@ -72,14 +73,17 @@
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    box-shadow: 0 4px 6px var(--shadow);
+    color: var(--text);
+    background: transparent;
+    border: 1px solid ;
     transition: 0.5s;
     outline: none;
 }
 .key_stats>button:hover {
-    background: var(--primary);
-    padding: .5rem 2rem;
+   
+    border: .1px solid var(--border);
+    padding: .5rem 1.6rem;
+    color: var(--text-secondary);
     
 }
 
@@ -87,13 +91,13 @@
 /* popular_stats section */
 .popular_stats {
     position: relative;
-    background: white;
+    background: var(--bg-secondary);
     padding: 2rem 0;
 }
 .popular_stats > h2{
     font-size: 2.5rem;
     font-weight: 600;
-    color: var(--secondary);
+    color: var(--text);
     font-family: "Oswald", sans-serif;
     font-weight: 600;
     font-style: bold;
@@ -113,8 +117,12 @@
     width: 40%;
     background: var(--bg);
     border-radius: 15px;
-    box-shadow: 0 4px 6px var(--shadow);
+    box-shadow: 0 1px 2px var(--shadow);
     padding: 1rem;
+    color: var(--text-secondary);
     transition: 0.5s;
     cursor: pointer;
+}
+.card:hover{
+    box-shadow: 0 1px 2px var(--border);
 }

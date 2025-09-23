@@ -1,0 +1,85 @@
+.section-container {
+    margin-top: 5vw;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-secondary);
+}
+.section-container > .img{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    /* filter: blur(.1px) hue-rotate(50deg) grayscale(0.6) ; */
+    /* background: radial-gradient(circle at center, #2730425c, var(--bg) ); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background: url("/src/assets/edu1.jpg") no-repeat center/cover; */
+    
+    background-position: bottom ;
+}
+
+.section-container h2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text);
+    font-weight: 600;
+    font-style: bold;
+    margin: 2rem auto;
+    padding: 2rem 0;
+}
+.section-container > article{
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+}
+.section-container> article > h3{
+    font-size: 1.5rem;
+    color: var(--text);
+    /* font-family: "Oswald", sans-serif; */
+    font-weight: 600;
+    margin: 1rem auto;
+    padding: 1rem 0;    
+}
+.section-container> article > p{
+    width: 90%;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    margin: 1rem auto;
+}
+
+.section-container > article > div{
+    width: 90%;
+    /* font-size: 1.2rem; */
+    /* font-weight: 100; */
+    
+    margin: 1rem auto;
+}
+
+
+.indicators > div >ul{
+    margin: 1rem auto;
+    list-style-type: none;
+    color: var(--text);
+    line-height: 2rem;
+}
+
+.indicators li> h4:hover{
+        color: var(--text-secondary);
+        text-decoration: underline;
+        cursor: pointer;
+}
+
+
+.indicators li> h4 > span{
+    display: inline-block;
+    
+
+}
+.indicators > div > p{
+    font-family: 'Roboto', sans-serif;
+}
