@@ -50,7 +50,7 @@ const Template = ({ headings, icon, section, WhyItMatter }) => {
 
   return (
     <section className='section-container'>
-      <div className='img' style={backgrounds[section]}></div>
+      <div className='img' style={{...backgrounds[section]}}></div>
       <h2>
         {icon}
         {section}
