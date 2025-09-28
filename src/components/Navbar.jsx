@@ -1,8 +1,21 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './css/navbar.css'
 export default function Navbar () {
   const navRef = useRef(null)
+  const [icon_class, setIcon_class] = useState('humbarger_icon')
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    if (!isOpen) {
+      
+      setIcon_class('humbarger_icon open ')
+    } else {
+     
+      setIcon_class('humbarger_icon')
+    }
+    setIsOpen(!isOpen)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,17 +40,23 @@ export default function Navbar () {
     <div>
       <nav ref={navRef}>
         <div className='logo'>
+          <div className={icon_class} onClick={toggleMenu}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
           <NavLink to='/' className='nav-link'>
             PAK.<span>Stats</span>
           </NavLink>
+          
         </div>
-        <div className='nav__links'>
-          <ul>
+        <div className={'nav__links' + (isOpen ? 'open ' : '')}>
+          <ul className={isOpen ? 'open ' : ''}>
             <li>
               <NavLink
                 to='/'
                 className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
+                  isActive ? 'nav-link active ' : 'nav-link'
                 }
               >
                 Home

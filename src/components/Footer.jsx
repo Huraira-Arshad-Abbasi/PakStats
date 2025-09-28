@@ -1,6 +1,6 @@
 // import { useEffect } from 'react'
 import './css/footer.css'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
         {/* <a href="/">Home</a> */}
         {/* <a href="/poverty&Jobs">Poverty & Jobs</a> */}
         {/* <a href="/Trade">Trade</a> */}
-        <a href="/About">About</a>
+        <Link to="/About">About</Link>
       </div>
     </footer>
   )

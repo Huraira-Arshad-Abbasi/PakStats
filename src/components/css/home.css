@@ -1,6 +1,7 @@
 .home_container {
     text-align: center;
     width: 100%;
+    margin: 0 auto;
 
 }
 
@@ -11,21 +12,21 @@
     z-index: -1;
     height: 100vh;
     width: 100%;
-    filter: grayscale(0.5) contrast(1.1) brightness(1.1);
-    background: radial-gradient(circle at center, #31294354, var(--bg) 80%), url("/src/assets/hero1.jpg") no-repeat center/cover;
-    background-position: top left;
+    filter:  saturate(1.2) brightness(.3) ;
+    background: radial-gradient(circle at center, #31294354, var(--bg) ), url("/src/assets/faisal-m.jpg") no-repeat center/cover;
+    background-position: top right  ;
 }
 
 .home_container>.hero_section {
 
     height: 100vh;
     width: 100%;
-    /* margin: 2vw auto; */
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: end;
     /* color: white; */
-    
+
 }
 
 .hero_content {
@@ -36,23 +37,21 @@
 }
 
 .hero_content>h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
     color: var(--text);
-    font-family: "Oswald", sans-serif;
-    font-weight: 600;
-    font-style: bold;
-    text-shadow: 0px 0px 14px #000000;
+    font-family: var(--primaryfont);
+    /* text-shadow: 0px 0px 5px #000000; */
 }
 
 .hero_content>p {
     font-size: 1.5vw;
-    font-weight: 300;
-    font-style: italic;
-    margin-bottom: 3vw;
+    font-weight: 400;
+    line-height: 1.8rem;
+    /* font-style: italic; */
+    margin: 2vw;
     color: var(--text-secondary);
-    text-shadow: 2px 2px 4px rgb(38, 45, 52);
+    /* text-shadow: 0px 2px 4px var(--bg); */
 }
 
 .hero_content>.key_stats {
@@ -61,30 +60,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     /* gap: 2rem; */
     /* border: 2px solid blue; */
 }
 
-.key_stats>button {
-    padding: .5rem 1.5rem;
+.key_stats>a {
+    padding: .4rem 2rem;
     margin: 1rem;
     font-size: 1rem;
     font-weight: 600;
-    border: none;
-    border-radius: 15px;
+    border-radius: 25px;
     cursor: pointer;
     color: var(--text);
     background: transparent;
-    border: 1px solid ;
+    /* border: 1px solid; */
     transition: 0.5s;
-    outline: none;
+    text-decoration: none;
+    /* border: .1px solid var(--highligt); */
+    box-shadow: 0 0 5px 0  var(--shadow);
 }
-.key_stats>button:hover {
-   
-    border: .1px solid var(--border);
-    padding: .5rem 1.6rem;
-    color: var(--text-secondary);
-    
+
+.key_stats>a:hover {
+
+    /* border: .1px solid var(--border); */
+    padding: .4rem 2.1em;
+    box-shadow: 0 0 5px 0  var(--border);
+    color: var(--highligt);
+
 }
 
 
@@ -93,27 +96,32 @@
     position: relative;
     background: var(--bg-secondary);
     padding: 2rem 0;
+    margin: 0 auto;
+
 }
-.popular_stats > h2{
+
+
+.popular_stats>h2 {
     font-size: 2.5rem;
     font-weight: 600;
     color: var(--text);
-    font-family: "Oswald", sans-serif;
     font-weight: 600;
     font-style: bold;
     margin: 2rem auto;
     padding: 2rem 0;
 }
-.popular_stats > .stats_cards{
+
+.popular_stats>.stats_cards {
     margin: 2rem auto;
-    width: 90%;
+    min-width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 3rem;
 }
-.stats_cards > .card{
+
+.stats_cards>.card {
     width: 40%;
     background: var(--bg);
     border-radius: 15px;
@@ -123,6 +131,29 @@
     transition: 0.5s;
     cursor: pointer;
 }
-.card:hover{
-    box-shadow: 0 1px 2px var(--border);
+
+.card:hover {
+    box-shadow: 0 1px 2px var(--highligt);
+    color: var(--shadow);
+}
+
+.stats_cards>.card>a {
+    color: unset;
+    text-decoration: none;
+}
+
+/* media queries */
+@media screen and (width<=784px) {
+    .home_container>.hero_section {
+        height: calc(fit-content + 10vh);
+        align-items: center;
+    }
+}
+
+
+@media screen and (width <=500px) {
+    .stats_cards>.card {
+        width: 90%;
+    }
+
 }

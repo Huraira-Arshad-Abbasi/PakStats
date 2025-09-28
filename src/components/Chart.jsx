@@ -101,7 +101,7 @@ const Chart = ({ code }) => {
       </div>
       <div className='charts'>
         {Data.length === 0 && <div className='no_data'>No Data Found</div>}
-        {Chart.lineChart && (
+        {(Data.length !== 0 && Chart.lineChart) && (
           <ResponsiveContainer width='100%' height={400}>
             <LineChart data={Data}>
               <CartesianGrid
@@ -118,14 +118,14 @@ const Chart = ({ code }) => {
               <Line
                 type='monotone'
                 dataKey='value'
-                stroke='var(--text)'
+                stroke='var(--shadow)'
                 strokeWidth={1}
                 dot={{ r: 3 }}
               />
             </LineChart>
           </ResponsiveContainer>
         )}
-        {Chart.barChart && (
+        {(Data.length !== 0 && Chart.barChart) && (
           <ResponsiveContainer width='100%' height={400}>
             <BarChart data={Data}>
               <CartesianGrid strokeDasharray='3 10'
@@ -138,7 +138,7 @@ const Chart = ({ code }) => {
                 wrapperClassName="custom-tooltip"
                 formatter={value => formatNumber(value)}
               />
-              <Bar dataKey='value' fill='var(--text)' />
+              <Bar dataKey='value' fill='var(--shadow)' />
             </BarChart>
           </ResponsiveContainer>
         )}

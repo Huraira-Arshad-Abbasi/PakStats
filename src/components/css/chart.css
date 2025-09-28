@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--secondaryfont);
     /* background-color: var(--secondary); */
     gap: 4rem;
 }
@@ -26,11 +26,27 @@
    background-color: var(--bg-secondary);
     padding: 1rem;
 }
+
+
 .custom-tooltip{
   border-radius: 8px;
+  background: red;
 }
 .custom-tooltip p {
   margin: 0 auto;
   font-weight: bold;
-  color: var(--text); /
+  color: var(--bg); 
+}
+.no_data{
+    text-align: center;
+    /* font-size: large; */
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-family: var(--secondaryfont);
+}
+@media screen and (width < 784px){
+    .chart_container{
+        width: 100%;
+    }
+    
 }

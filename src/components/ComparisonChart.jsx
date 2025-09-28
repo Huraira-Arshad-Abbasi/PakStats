@@ -21,18 +21,13 @@ const ComparisonChart = ({ code }) => {
   })
   const [data, setData] = React.useState([])
   React.useEffect(() => {
-    // fetch the data with coutry code ... + pak
-    // store both data1 and Pakdata in a variable
-    // then modify the data into by using the map and fillter methods
-    // apply map on pakdata as we apply in chart
-    // under only pick the value of other country
-    // then save it to the state > data
-    const fetchCountryData = async countryCode => {
+    const fetchCountryData = async (countryCode) => {
       try {
         let response = await fetch(
           `https://api.worldbank.org/v2/country/${countryCode}/indicator/${code}?format=json`
         )
         let res = await response.json()
+        
         return res[1]
           .filter(d => d.value !== null)
           .map(d => ({
@@ -54,40 +49,45 @@ const ComparisonChart = ({ code }) => {
         fetchCountryData('PK'),
         fetchCountryData(selection.country)
       ])
-      const merged = PakData.map(pakD => {
+      
+      const merged = await PakData.map(async (pakD) => {
         // modifiey the data
-        const other = OtherData.find(d => d.year === pakD.year)
-
+        const other = await OtherData.find(d => d.year === pakD.year)
+        
         return {
           year: pakD.year,
           Pakistan: pakD.value,
-          [selection.country]: other.value ? other.value : []
+          [selection.country]: other ? other.value : null
         }
       })
-      setData(merged.reverse())
+      // console.log(merged.reverse()); here merged is a array of promises
+      // so we have to wait for all the promises to resolve
+      // before setting the state
+      // we can use Promise.all to wait for all the promises to resolve
+      const resolvedData = await Promise.all(merged)
+      setData(resolvedData.reverse())
     }
-    fetchData()
 
+    fetchData()
   }, [selection, code])
 
+  const formatNumber = num => {
+    if (num === null || num === undefined) return ''
 
-const formatNumber = (num)=>{
-  if (num === null || num === undefined) return "";
+    const absNum = Math.abs(num)
 
-  const absNum = Math.abs(num);
-
-  if (absNum >= 1.0e12) {
-    return (num / 1.0e12).toFixed(2) + "T"; // trillion
-  } else if (absNum >= 1.0e9) {
-    return (num / 1.0e9).toFixed(2) + "B"; // billion
-  } else if (absNum >= 1.0e6) {
-    return (num / 1.0e6).toFixed(2) + "M"; // million
-  } else if (absNum >= 1.0e3) {
-    return (num / 1.0e3).toFixed(2) + "K"; // thousand
-  } else {
-    return num.toFixed(2); // small numbers
+    if (absNum >= 1.0e12) {
+      return (num / 1.0e12).toFixed(2) + 'T' // trillion
+    } else if (absNum >= 1.0e9) {
+      return (num / 1.0e9).toFixed(2) + 'B' // billion
+    } else if (absNum >= 1.0e6) {
+      return (num / 1.0e6).toFixed(2) + 'M' // million
+    } else if (absNum >= 1.0e3) {
+      return (num / 1.0e3).toFixed(2) + 'K' // thousand
+    } else {
+      return num.toFixed(2) // small numbers
+    }
   }
- }
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -132,61 +132,73 @@ const formatNumber = (num)=>{
         </div>
       </div>
       <div className='chart_countainer'>
-        {(selection.chartType === 'line') && 
-        <ResponsiveContainer width='100%' height={400}>
-          <LineChart data={data}>
-            <CartesianGrid strokeDasharray='3 8' />
-            <XAxis dataKey='year' />
-            <YAxis tickFormatter={formatNumber}/>
-            <Tooltip formatter={(value) => formatNumber(value)}/>
-            <Legend />
-            <Line
-              type='monotone'
-              dataKey='Pakistan'
-              stroke='#8884d8'
-              strokeWidth={2}
-            />
-            <Line
-              type='monotone'
-              dataKey={selection.country}
-              stroke='#82ca9d'
-              strokeWidth={2}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-        }
-        {(selection.chartType === 'bar') && 
-        <ResponsiveContainer width='100%' height={400}>
-          <BarChart data={data}>
-            <CartesianGrid strokeDasharray='3 8' />
-            <XAxis dataKey='year' />
-            <YAxis tickFormatter={formatNumber}/>
-            <Tooltip formatter={(value) => formatNumber(value)}/>
-            <Legend />
-            <Bar fill="#8884d8"
-            dataKey='Pakistan'/>
-            <Bar fill="#82ca9d"
-            dataKey={selection.country}/>
-          </BarChart>
-        </ResponsiveContainer>}
-        {(selection.chartType === 'composed') && 
-        <ResponsiveContainer width='100%' height={400}>
-          <ComposedChart data={data}>
-            <CartesianGrid strokeDasharray='3 8' />
-            <XAxis dataKey='year' />
-            <YAxis tickFormatter={formatNumber}/>
-            <Tooltip formatter={(value) => formatNumber(value)}/>
-            <Legend />
-            <Bar fill="#8884d8"
-            dataKey='Pakistan'/>
-            <Line
-              type='monotone'
-              dataKey={selection.country}
-              stroke='#82ca9d'
-              strokeWidth={2}
-            />
-          </ComposedChart>
-        </ResponsiveContainer>}
+        {data.length === 0 && <div className='no_data'>No Data Found</div>}
+        {data.length !== 0 && selection.chartType === 'line' && (
+          <ResponsiveContainer width='100%' height={400}>
+            <LineChart data={data}>
+              <CartesianGrid
+                strokeDasharray='3 10'
+                opacity={0.9}
+                stroke='var(--text-secondary)'
+              />
+              <XAxis dataKey='year' />
+              <YAxis tickFormatter={formatNumber} />
+              <Tooltip formatter={value => formatNumber(value)} />
+              <Legend />
+              <Line
+                type='monotone'
+                dataKey='Pakistan'
+                stroke='#8884d8'
+                strokeWidth={2}
+              />
+              <Line
+                type='monotone'
+                dataKey={selection.country}
+                stroke='#82ca9d'
+                strokeWidth={2}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        )}
+        {data.length !== 0 && selection.chartType === 'bar' && (
+          <ResponsiveContainer width='100%' height={400}>
+            <BarChart data={data}>
+              <CartesianGrid
+                strokeDasharray='3 10'
+                opacity={0.4}
+                stroke='var(--text-secondary)'
+              />
+              <XAxis dataKey='year' />
+              <YAxis tickFormatter={formatNumber} />
+              <Tooltip formatter={value => formatNumber(value)} />
+              <Legend />
+              <Bar fill='#8884d8' dataKey='Pakistan' />
+              <Bar fill='#82ca9d' dataKey={selection.country} />
+            </BarChart>
+          </ResponsiveContainer>
+        )}
+        {data.length !== 0 && selection.chartType === 'composed' && (
+          <ResponsiveContainer width='100%' height={400}>
+            <ComposedChart data={data}>
+              <CartesianGrid
+                strokeDasharray='3 10'
+                opacity={0.4}
+                stroke='var(--text-secondary)'
+              />
+              <XAxis dataKey='year' />
+              <YAxis tickFormatter={formatNumber} />
+              <Tooltip formatter={value => formatNumber(value)} />
+              <Legend />
+              <Bar fill='#8884d8' dataKey='Pakistan' />
+              <Line
+                type='monotone'
+                dataKey={selection.country}
+                stroke='#82ca9d'
+                strokeWidth={2}
+              />
+            </ComposedChart>
+          </ResponsiveContainer>
+        )}
       </div>
     </div>
   )

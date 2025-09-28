@@ -7,7 +7,8 @@
     flex-direction: column;
     color: var(--text-secondary);
 }
-.section-container > .img{
+
+.section-container>.img {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,67 +20,81 @@
     background-repeat: no-repeat;
     background-size: cover;
     /* background: url("/src/assets/edu1.jpg") no-repeat center/cover; */
-    
-    background-position: bottom ;
+
+    background-position: bottom;
 }
 
-.section-container h2{
+.section-container h2 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: var(--text);
+    color: var(--highligt);
     font-weight: 600;
     font-style: bold;
     margin: 2rem auto;
     padding: 2rem 0;
 }
-.section-container > article{
+
+.section-container>article {
     text-align: left;
     width: 90%;
     margin: 0 auto;
 }
-.section-container> article > h3{
+
+.section-container>article>h3 {
     font-size: 1.5rem;
     color: var(--text);
     /* font-family: "Oswald", sans-serif; */
     font-weight: 600;
     margin: 1rem auto;
-    padding: 1rem 0;    
+    padding: 1rem 0;
 }
-.section-container> article > p{
+
+.section-container>article>p {
     width: 90%;
     font-size: 1.1rem;
     line-height: 1.6rem;
     margin: 1rem auto;
 }
 
-.section-container > article > div{
+.section-container>article>div {
     width: 90%;
     /* font-size: 1.2rem; */
     /* font-weight: 100; */
-    
+
     margin: 1rem auto;
 }
 
 
-.indicators > div >ul{
+.indicators>div>ul {
     margin: 1rem auto;
     list-style-type: none;
     color: var(--text);
     line-height: 2rem;
 }
 
-.indicators li> h4:hover{
-        color: var(--text-secondary);
-        text-decoration: underline;
-        cursor: pointer;
+.indicators li>h4:hover {
+    color: var(--highligt);
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 
-.indicators li> h4 > span{
+.indicators li>h4>span {
     display: inline-block;
-    
+
 
 }
-.indicators > div > p{
+
+.indicators>div>p {
     font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (width) {
+    .section-container>article {
+        width: 90%;
+    }
+
+    .section-container>article>div {
+        width: 100%;
+    }
 }

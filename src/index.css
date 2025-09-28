@@ -1,72 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yeseva+One&display=swap');
 
 :root {
-  /* scheme 1 */
-  /* --bg: #fef9f9;
-  --primary: #7c3aed;
-  --secondary: #f472b6;
-  --text: #1f2937;
-  --text-secondary: #6b7280;
-  --shadow: #0a1f3b5e;
-  --hover: rgb(50, 65, 82);
-  --hover2: rgb(34, 40, 47); */
-
-  /* scheme 2 */
-  /* --bg: #000000; */
-  /* --primary: #00ffcc;
-  --secondary: #ff0066; */
-  /* --text: #ffffff;
-  --text-secondary: #b3b3b3; */
-  /* --shadow: #358bad; */
-  /* --hover: rgb(56, 56, 150); */
-
+  
   --bg: #131324;
-  --bg-secondary: #312943;
+  --bg-secondary: #302f4dce;
   --text: #c3cdff;
-  /* --text: #ffffff; */
+  --text: #ffffff;
   --text-secondary: #d4d8ca;
+  --text-secondary: #d6d6d6;
   --hover-text: #ffffff;
   --border: #4e0eff;
   --shadow: #5fc7ff;
-  /* scheme 3  high contrast*/
-  /* --bg: #0f172a;
-  --primary: #38bdf8;
-  --secondary: #facc15;
-  --text: #f8fafc;
-  --text-secondary: #94a3b8;
-  --shadow: #358bad;
-  --hover: rgb(34, 55, 76); */
+  --highligt: #facc15;
+  /* --highligt: #968749; */
+  --primaryfont: "Oswald", sans-serif;
+  --secondaryfont: 'Open Sans', sans-serif;
+/* --bg: #0f172a;           
+--bg-secondary: #1e293b; 
+--text:  #f4dede;         
+--text-secondary:  #50cb6d;
+--hover-text: #ffffff;
+--border: #3b82f6;    
+--shadow: #38bdf8;        */
 
-
-  /* scheme 4 */
-  /* --bg: #ffffff ;
-  --primary: #2563eb ;
-  --secondary: #10b981 ;
-  --text: #111827;
-  --text-secondary: #6b7280;
-  --shadow: #154051be;
-  --hover: rgb(56, 150, 103); */
-
-
-
-
-
-
-  /* scheme New */
-  /* --bg: #252932;
-  --bg: #2f2f32;
-  --primary: #d3d5cc; 
-  --secondary: #473b64;
-  --text: #bac0ea;   
-  --text-secondary: #ffffff;
-  --shadow: #000000; */
-  --hover-bg: #2a3536;
-  --hover-text: #ffffff;
 
 
   color: var(--text);
   background: var(--bg);
-  font-family: "Oswald", sans-serif;
+  font-family: var(--primaryfont);
   max-width: 1280px;
   overflow-x: hidden;
   margin: 0 auto;

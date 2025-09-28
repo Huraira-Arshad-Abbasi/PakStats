@@ -3,7 +3,7 @@ import './css/template.css'
 import Details from './Details'
 import edu from '../assets/edu1.jpg'
 import tradeImg from '../assets/trade.jpg'
-import ec from '../assets/hero.jpg'
+import ec from '../assets/economy.jpg'
 import tec from '../assets/tec.jpg'
 import poverty from '../assets/poverty.jpg'
 import debt from '../assets/debt.webp'
@@ -13,34 +13,35 @@ const Template = ({ headings, icon, section, WhyItMatter }) => {
 
   const backgrounds = {
     "Education": {
-      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) 80%), url(${edu}) `,
-      // filter: 'blur(1px) opacity(0.3)',
+      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) ), url(${edu}) `,
+      filter: 'brightness(0.6)',
       backgroundPosition: 'center'
     },
     "Trade in Pakistan": {
-      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) 80%), url(${tradeImg})`,
-      // filter: 'blur(1px) opacity(.3)',
-      backgroundPosition: 'bottom left'
+      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) ), url(${tradeImg})`,
+      filter: 'brightness(0.6)',
+      backgroundPosition: 'center'
     },
     "Economy": {
-      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) 80%), url(${ec})`,
+      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg)), url(${ec})`,
       // filter: 'blur(1px) opacity(0.2)',
-      backgroundPosition: 'top'
+      backgroundPosition: 'top center'
+
     },
    "Science & Technology": {
-      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) 80%), url(${tec})`,
-      // filter: 'blur(.1px) opacity(0.9)',
+      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg)), url(${tec})`,
+      filter: 'brightness(0.9)',
       backgroundPosition: 'top'
     },
    "External Debt": {
-      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) 80%), url(${debt})`,
-      // filter: 'blur(.1px) opacity(0.4)',
+      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) ), url(${debt})`,
+      filter: 'brightness(0.6)',
       backgroundPosition: 'top'
     },
    "Poverty in Pakistan": {
-      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg) 80%), url(${poverty})`,
-      filter: 'grayscale(0.6)',
-      backgroundPosition: 'top'
+      backgroundImage: `radial-gradient(circle at center, #31294354, var(--bg)), url(${poverty})`,
+      filter: 'brightness(0.8)',
+      backgroundPosition: 'center'
     },
   }
 
@@ -92,7 +93,7 @@ const Template = ({ headings, icon, section, WhyItMatter }) => {
                   </h4>
                   <div>
                     {open[index] && (
-                      <Details section={section} code={h.code} p={h.desc} />
+                      <Details code={h.code} p={h.desc} />
                     )}
                   </div>
                 </li>
