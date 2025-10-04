@@ -7,11 +7,11 @@ const Home = () => {
 
   React.useEffect(() => {
     const indicators = [
-      { title: 'Unemployment Rate', code: 'SL.UEM.TOTL.ZS' },
-      { title: 'Poverty Rate ($2.15/day)', code: 'SI.POV.DDAY' },
-      { title: 'GDP (Current US$)', code: 'NY.GDP.MKTP.CD' },
-      { title: 'Exports (% of GDP)', code: 'NE.EXP.GNFS.ZS' },
-      { title: 'External Debt (% of GDP)', code: 'DT.DOD.DECT.GN.ZS' }
+      { title: 'Unemployment Rate', code: 'SL.UEM.TOTL.ZS', url: '/Economy' },
+      { title: 'Poverty Rate ($2.15/day)', code: 'SI.POV.DDAY', url: '/poverty' },
+      { title: 'GDP (Current US$)', code: 'NY.GDP.MKTP.CD', url: '/Economy' },
+      { title: 'Exports (% of GDP)', code: 'NE.EXP.GNFS.ZS', url: '/Trade' },
+      { title: 'External Debt (% of GDP)', code: 'DT.DOD.DECT.GN.ZS', url: '/Debt' }
     ]
 
     async function fetchStats () {
@@ -47,7 +47,8 @@ const Home = () => {
             return {
               title: item.title,
               value: formatNumber(value),
-              year
+              year,
+              url: item.url
             }
           })
         )
@@ -92,9 +93,9 @@ const Home = () => {
                 key={index}
                 className='card'
               >
-                <Link to='/poverty'>
+                <Link to={stat.url}>
                   <h3>{stat.title}</h3>
-                  <p>{stat.value}</p>
+                  <p> {stat.value} <span >({stat.year})</span></p>
                 </Link>
               </div>
             )
