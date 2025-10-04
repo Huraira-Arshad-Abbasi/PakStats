@@ -82,9 +82,9 @@
 }
 
 .key_stats>a:hover {
-
+    transform: translateY(-2px);
     /* border: .1px solid var(--border); */
-    padding: .4rem 2.1em;
+    /* padding: .4rem 2.1em; */
     box-shadow: 0 0 5px 0  var(--border);
     color: var(--highligt);
 
@@ -133,8 +133,8 @@
 }
 
 .card:hover {
+    transform: translateY(-3px);
     box-shadow: 0 1px 2px var(--highligt);
-    color: var(--shadow);
 }
 
 .stats_cards>.card>a {
