@@ -17,6 +17,7 @@ const Chart = ({ code }) => {
     lineChart: true,
     barChart: false
   })
+   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +26,9 @@ const Chart = ({ code }) => {
           `https://api.worldbank.org/v2/country/PK/indicator/${code}?format=json`
         )
         let res = await response.json()
+        if(res){
+          setIsLoading(false)
+        }
         const formattedData = res[1]
           .filter(d => d.value !== null) // remove null values
           .map(d => ({
@@ -100,7 +104,8 @@ const Chart = ({ code }) => {
         </label>
       </div>
       <div className='charts'>
-        {Data.length === 0 && <div className='no_data'>No Data Found</div>}
+        {isLoading && Data.length === 0 && <div className='loading'>Loading...</div>}
+        {!isLoading && Data.length === 0 && <div className='no_data'>No Data Found</div>}
         {(Data.length !== 0 && Chart.lineChart) && (
           <ResponsiveContainer width='100%' height={400}>
             <LineChart data={Data}>

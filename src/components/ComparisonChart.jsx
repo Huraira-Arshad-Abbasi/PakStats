@@ -19,15 +19,18 @@ const ComparisonChart = ({ code }) => {
     country: 'IND',
     chartType: 'line'
   })
+  const [isLoading, setIsLoading] = React.useState(true)
+
   const [data, setData] = React.useState([])
   React.useEffect(() => {
+
     const fetchCountryData = async (countryCode) => {
       try {
         let response = await fetch(
           `https://api.worldbank.org/v2/country/${countryCode}/indicator/${code}?format=json`
         )
         let res = await response.json()
-        
+       
         return res[1]
           .filter(d => d.value !== null)
           .map(d => ({
@@ -53,11 +56,13 @@ const ComparisonChart = ({ code }) => {
       const merged = await PakData.map(async (pakD) => {
         // modifiey the data
         const other = await OtherData.find(d => d.year === pakD.year)
-        
+        if (other) {
+          setIsLoading(false)
+        }
         return {
           year: pakD.year,
           Pakistan: pakD.value,
-          [selection.country]: other ? other.value : null
+          [selection.country]: other ? other.value : []
         }
       })
       // console.log(merged.reverse()); here merged is a array of promises
@@ -69,9 +74,13 @@ const ComparisonChart = ({ code }) => {
     }
 
     fetchData()
+    
   }, [selection, code])
 
   const formatNumber = num => {
+    if (typeof num !== 'number') {
+      return ''
+    }
     if (num === null || num === undefined) return ''
 
     const absNum = Math.abs(num)
@@ -132,7 +141,8 @@ const ComparisonChart = ({ code }) => {
         </div>
       </div>
       <div className='chart_countainer'>
-        {data.length === 0 && <div className='no_data'>No Data Found</div>}
+        {isLoading && data.length === 0 && <div className='loading'>Loading...</div>}
+        {!isLoading && data.length === 0 && <div className='no_data'>No Data Found</div>}
         {data.length !== 0 && selection.chartType === 'line' && (
           <ResponsiveContainer width='100%' height={400}>
             <LineChart data={data}>

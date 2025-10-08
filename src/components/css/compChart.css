@@ -38,6 +38,7 @@
     padding: 1rem;
 
 }
+.chart_countainer > .loading,
 .chart_countainer  > .no_data{
     text-align: center;
     /* font-size: large; */

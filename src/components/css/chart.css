@@ -37,7 +37,7 @@
   font-weight: bold;
   color: var(--bg); 
 }
-.no_data{
+.loading, .no_data{
     text-align: center;
     /* font-size: large; */
     font-weight: 400;
