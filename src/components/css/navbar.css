@@ -11,7 +11,7 @@ nav {
   z-index: 100;
   transition: all 0.5s;
   margin: 0 auto;
-  border-bottom: .5px solid var(--highligt);
+  border-bottom: .5px solid var(--shadow);
 }
 
 .logo {
@@ -23,12 +23,10 @@ nav {
 
 .logo>.humbarger_icon {
   display: none;
-
   height: 25px;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  /* border: 1px solid red; */
 }
 
 
@@ -173,16 +171,26 @@ ul>li>a {
 
   .nav__links.open {
     margin: 0;
+    
   }
 
   ul.open {
     flex-direction: column;
     list-style-type: none;
+    min-width:fit-content;
+    width: 60%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    margin: auto;
+    background: var(--bg);
+    border-right: 1px solid var(--highligt);
   }
 
   ul.open>li {
     margin: 1.5vw 0;
     padding: .5rem;
+    text-align: center;
     border-bottom: 1px solid var(--border);
   }
 

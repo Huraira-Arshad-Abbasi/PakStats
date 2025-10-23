@@ -4,24 +4,23 @@
   
   --bg: #131324;
   --bg-secondary: #302f4dce;
-  --text: #c3cdff;
-  --text: #ffffff;
-  --text-secondary: #d4d8ca;
-  --text-secondary: #d6d6d6;
+  --text: #f2f6ff;
+  /* --text: rgb(156, 123, 46); */
+  --text-secondary: #bcc687;
   --hover-text: #ffffff;
   --border: #4e0eff;
-  --shadow: #5fc7ff;
-  --highligt: #facc15;
+  --shadow: #99919182;
+  --highligt: #94ff6d;
   /* --highligt: #968749; */
   --primaryfont: "Oswald", sans-serif;
   --secondaryfont: 'Open Sans', sans-serif;
-/* --bg: #0f172a;           
---bg-secondary: #1e293b; 
---text:  #f4dede;         
---text-secondary:  #50cb6d;
---hover-text: #ffffff;
---border: #3b82f6;    
---shadow: #38bdf8;        */
+/* --bg: #0f172a;            */
+/* --bg-secondary: #1e293b93;  */
+/* --text:  #f4dede;          */
+/* --text-secondary:  #50cb6d; */
+/* --hover-text: #ffffff; */
+/* --border: #3b82f6;     */
+/* --shadow: #38bdf8;        */
 
 
 

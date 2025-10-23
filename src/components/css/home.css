@@ -12,9 +12,9 @@
     z-index: -1;
     height: 100vh;
     width: 100%;
-    filter:  saturate(1.2) brightness(.3) ;
-    background: radial-gradient(circle at center, #31294354, var(--bg) ), url("/src/assets/faisal-m.jpg") no-repeat center/cover;
-    background-position: top right  ;
+    filter:  saturate(.8) brightness(.7) ;
+    background: radial-gradient(circle at center, var(--bg-secondary), var(--bg) ), url("/src/assets/faisal-m.jpg") no-repeat center/cover;
+    background-position: top right;
 }
 
 .home_container>.hero_section {
@@ -40,6 +40,7 @@
     font-size: 2.5rem;
     letter-spacing: 3px;
     color: var(--text);
+    text-transform: capitalize;
     font-family: var(--primaryfont);
     /* text-shadow: 0px 0px 5px #000000; */
 }
@@ -125,7 +126,7 @@
     width: 40%;
     background: var(--bg);
     border-radius: 15px;
-    box-shadow: 0 1px 2px var(--shadow);
+    box-shadow: 0 0px 2px var(--bg);
     padding: 1rem;
     color: var(--text-secondary);
     transition: 0.5s;

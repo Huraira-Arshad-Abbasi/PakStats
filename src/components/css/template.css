@@ -37,6 +37,7 @@
 .section-container>article {
     text-align: left;
     width: 90%;
+
     margin: 0 auto;
 }
 
@@ -70,6 +71,12 @@
     list-style-type: none;
     color: var(--text);
     line-height: 2rem;
+    
+}
+.indicators li > h4{
+    margin: .5rem 0;
+    font-family: var(--secondaryfont);
+    font-weight: 400;
 }
 
 .indicators li>h4:hover {

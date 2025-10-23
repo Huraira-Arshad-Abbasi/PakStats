@@ -21,10 +21,9 @@ export default function Navbar () {
     const handleScroll = () => {
       if (window.scrollY > 100) {
         // navRef.current.style.borderBottom = '0px'
-        navRef.current.style.boxShadow = '0 0 5px 0px var(--border)'
         navRef.current.style.backgroundColor = 'var(--bg)'
       } else {
-        navRef.current.style.boxShadow = 'none'
+        
         navRef.current.style.backgroundColor = 'transparent'
       }
     }
@@ -55,6 +54,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active ' : 'nav-link'
                 }
@@ -66,6 +66,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Education'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -76,6 +77,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Economy'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -87,6 +89,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Trade'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -98,6 +101,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Debt'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -108,6 +112,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Tech'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -118,6 +123,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/poverty'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -128,6 +134,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/About'
+                onClick={isOpen? toggleMenu : ""}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
