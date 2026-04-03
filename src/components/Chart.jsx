@@ -13,11 +13,8 @@ import {
 import './css/chart.css'
 const Chart = ({ code }) => {
   const [Data, setData] = React.useState([])
-  const [Chart, setChart] = React.useState({
-    lineChart: true,
-    barChart: false
-  })
-   const [isLoading, setIsLoading] = React.useState(true)
+  const [toggleChart, setToggleChart] = React.useState(true)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +23,7 @@ const Chart = ({ code }) => {
           `https://api.worldbank.org/v2/country/PK/indicator/${code}?format=json`
         )
         let res = await response.json()
-        if(res){
+        if (res) {
           setIsLoading(false)
         }
         const formattedData = res[1]
@@ -68,15 +65,6 @@ const Chart = ({ code }) => {
     }
   }
 
-  const handleChange = e => {
-    const { name, checked: isChecked } = e.target
-
-    setChart(pre => ({
-      ...pre,
-      [name]: isChecked
-    }))
-    // setChart(.)
-  }
 
   return (
     <div className='chart_container'>
@@ -84,10 +72,10 @@ const Chart = ({ code }) => {
         <label htmlFor='lineChart'>
           <input
             type='checkbox'
-            checked={Chart.lineChart}
+            checked={toggleChart == true}
             name='lineChart'
             id='lineChart'
-            onChange={handleChange}
+            onChange={() => setToggleChart(pre => !pre)}
           />
           Line Chart
         </label>
@@ -95,18 +83,24 @@ const Chart = ({ code }) => {
         <label htmlFor='barChart'>
           <input
             type='checkbox'
-            checked={Chart.barChart}
+            checked={toggleChart == false}
             name='barChart'
             id='barChart'
-            onChange={handleChange}
+            onChange={() => setToggleChart(pre => !pre)}
           />
           Bar Chart
         </label>
       </div>
+
       <div className='charts'>
-        {isLoading && Data.length === 0 && <div className='loading'>Loading...</div>}
-        {!isLoading && Data.length === 0 && <div className='no_data'>No Data Found</div>}
-        {(Data.length !== 0 && Chart.lineChart) && (
+        {isLoading && Data.length === 0 && (
+          <div className='loading'>Loading...</div>
+        )}
+        {!isLoading && Data.length === 0 && (
+          <div className='no_data'>No Data Found</div>
+        )}
+       
+        {Data.length !== 0 && (toggleChart) && (
           <ResponsiveContainer width='100%' height={400}>
             <LineChart data={Data}>
               <CartesianGrid
@@ -117,7 +111,7 @@ const Chart = ({ code }) => {
               <XAxis dataKey='year' stroke='var(--text)' />
               <YAxis tickFormatter={formatNumber} stroke='var(--text)' />
               <Tooltip
-                wrapperClassName="custom-tooltip"
+                wrapperClassName='custom-tooltip'
                 formatter={value => formatNumber(value)}
               />
               <Line
@@ -126,25 +120,28 @@ const Chart = ({ code }) => {
                 stroke='var(--shadow)'
                 strokeWidth={1}
                 dot={{ r: 3 }}
+                fill='var(--text)'
               />
             </LineChart>
           </ResponsiveContainer>
         )}
-        {(Data.length !== 0 && Chart.barChart) && (
+        
+        {Data.length !== 0 && (!toggleChart) && (
           <ResponsiveContainer width='100%' height={400}>
             <BarChart data={Data}>
-              <CartesianGrid strokeDasharray='3 10'
-              opacity={0.4}
+              <CartesianGrid
+                strokeDasharray='3 10'
+                opacity={0.4}
                 stroke='var(--text-secondary)'
               />
-              <XAxis dataKey='year' stroke='var(--text)'/>
-              <YAxis tickFormatter={formatNumber} stroke='var(--text)'/>
+              <XAxis dataKey='year' stroke='var(--text)' />
+              <YAxis tickFormatter={formatNumber} stroke='var(--text)' />
               <Tooltip
-                wrapperClassName="custom-tooltip"
+                wrapperClassName='custom-tooltip'
                 formatter={value => formatNumber(value)}
               />
-              <Bar dataKey='value' fill='var(--shadow)' />
-            </BarChart>
+              <Bar dataKey='value' fill='var(--bg)' />
+            </BarChart>            
           </ResponsiveContainer>
         )}
       </div>

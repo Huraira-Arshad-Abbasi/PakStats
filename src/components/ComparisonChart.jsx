@@ -141,7 +141,7 @@ const ComparisonChart = ({ code }) => {
         </div>
       </div>
       <div className='chart_countainer'>
-        {isLoading && data.length === 0 && <div className='loading'>Loading...</div>}
+        {isLoading && <div className='loading'>Loading...</div>}
         {!isLoading && data.length === 0 && <div className='no_data'>No Data Found</div>}
         {data.length !== 0 && selection.chartType === 'line' && (
           <ResponsiveContainer width='100%' height={400}>
@@ -158,13 +158,13 @@ const ComparisonChart = ({ code }) => {
               <Line
                 type='monotone'
                 dataKey='Pakistan'
-                stroke='#8884d8'
+                stroke='var(--bg)'
                 strokeWidth={2}
               />
               <Line
                 type='monotone'
                 dataKey={selection.country}
-                stroke='#82ca9d'
+                stroke='#8884d8'
                 strokeWidth={2}
               />
             </LineChart>
@@ -183,7 +183,7 @@ const ComparisonChart = ({ code }) => {
               <Tooltip formatter={value => formatNumber(value)} />
               <Legend />
               <Bar fill='#8884d8' dataKey='Pakistan' />
-              <Bar fill='#82ca9d' dataKey={selection.country} />
+              <Bar fill='var(--bg)' dataKey={selection.country} />
             </BarChart>
           </ResponsiveContainer>
         )}
@@ -199,11 +199,11 @@ const ComparisonChart = ({ code }) => {
               <YAxis tickFormatter={formatNumber} />
               <Tooltip formatter={value => formatNumber(value)} />
               <Legend />
-              <Bar fill='#8884d8' dataKey='Pakistan' />
+              <Bar fill='var(--bg)' dataKey='Pakistan' />
               <Line
                 type='monotone'
                 dataKey={selection.country}
-                stroke='#82ca9d'
+                stroke='#8884d8'
                 strokeWidth={2}
               />
             </ComposedChart>

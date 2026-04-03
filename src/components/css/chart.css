@@ -28,11 +28,9 @@
 }
 
 
-.custom-tooltip{
-  border-radius: 8px;
-  background: red;
-}
-.custom-tooltip p {
+
+
+.custom-tooltip  {
   margin: 0 auto;
   font-weight: bold;
   color: var(--bg); 

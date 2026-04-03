@@ -8,22 +8,28 @@ export default function Navbar () {
 
   const toggleMenu = () => {
     if (!isOpen) {
-      
       setIcon_class('humbarger_icon open ')
     } else {
-     
       setIcon_class('humbarger_icon')
     }
     setIsOpen(!isOpen)
   }
 
   useEffect(() => {
-    const handleScroll = () => {
+    let PrePosition = window.scrollY
+    const handleScroll = () => { 
+        // let CurrentPosition = window.scrollY
+        if ((window.scrollY > PrePosition) && window.scrollY > 1000) {
+          navRef.current.style.transform = 'translateY(-115%)'
+        } else {
+          navRef.current.style.transform = 'translateY(0)'
+        }
+
+        PrePosition = window.scrollY
+
       if (window.scrollY > 100) {
-        // navRef.current.style.borderBottom = '0px'
         navRef.current.style.backgroundColor = 'var(--bg)'
       } else {
-        
         navRef.current.style.backgroundColor = 'transparent'
       }
     }
@@ -47,14 +53,13 @@ export default function Navbar () {
           <NavLink to='/' className='nav-link'>
             PAK.<span>Stats</span>
           </NavLink>
-          
         </div>
         <div className={'nav__links' + (isOpen ? 'open ' : '')}>
           <ul className={isOpen ? 'open ' : ''}>
             <li>
               <NavLink
                 to='/'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active ' : 'nav-link'
                 }
@@ -66,7 +71,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Education'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -77,7 +82,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Economy'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -89,7 +94,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Trade'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -101,7 +106,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Debt'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -112,7 +117,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/Tech'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -123,7 +128,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/poverty'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
@@ -134,7 +139,7 @@ export default function Navbar () {
             <li>
               <NavLink
                 to='/About'
-                onClick={isOpen? toggleMenu : ""}
+                onClick={isOpen ? toggleMenu : ''}
                 className={({ isActive }) =>
                   isActive ? 'nav-link active' : 'nav-link'
                 }
